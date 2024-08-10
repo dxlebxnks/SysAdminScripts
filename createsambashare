@@ -1,0 +1,17 @@
+Create a directory in Linux you want to share
+Before you configure anything with Samba, you will need to create a directory on your Linux server that you will want to share. For this example, we will use /srv/samba. To create this directory:
+
+Use the command: sudo mkdir /srv/samba
+Now, make that directory world writable and world browsable via: sudo chmod a+rwx /srv/samba
+Go to the bottom of the file, and add the following:
+[Anonymous]
+
+path = /srv/samba
+browseable = yes
+writable = yes
+read only = no
+
+guest ok = yes
+
+Save that file, and restart Samba with this command: sudo systemctl restart smbd
+You should be able to reach those shares from any machine on your network.
