@@ -1,0 +1,2 @@
+- Add Powershell to Windows Server Core
+-     - iex "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI"
